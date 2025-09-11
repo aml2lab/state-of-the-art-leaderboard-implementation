@@ -1,0 +1,234 @@
+(rocm-pytorch) john@llm-agents:~/open-source/py-proj/se-fashionmnist$ /home/john/miniconda3/envs/rocm-pytorch/bin/python /home/john/open-source/py-proj/se-fashionmnist/fashionmnist-cnn-aug.py
+Model parameters: 0.689M
+Epoch 1 [100/235] step=100 loss=1.4219 acc=50.07%
+Epoch 1 [200/235] step=200 loss=1.1442 acc=59.29%
+Epoch 1 done in 9.9s | train loss=1.0895 acc=61.01%
+[val] epoch 1 | loss 0.6278 | acc 76.27%
+Saved best checkpoint to best_fmnist_cnn.pth (acc=76.27%)
+Epoch 2 [100/235] step=335 loss=0.7245 acc=72.96%
+Epoch 2 [200/235] step=435 loss=0.6924 acc=73.96%
+Epoch 2 done in 1.8s | train loss=0.6833 acc=74.24%
+[val] epoch 2 | loss 0.5130 | acc 80.45%
+Saved best checkpoint to best_fmnist_cnn.pth (acc=80.45%)
+Epoch 3 [100/235] step=570 loss=0.6034 acc=77.32%
+Epoch 3 [200/235] step=670 loss=0.5918 acc=77.62%
+Epoch 3 done in 1.2s | train loss=0.5852 acc=77.92%
+[val] epoch 3 | loss 0.4541 | acc 83.13%
+Saved best checkpoint to best_fmnist_cnn.pth (acc=83.13%)
+Epoch 4 [100/235] step=805 loss=0.5432 acc=79.28%
+Epoch 4 [200/235] step=905 loss=0.5294 acc=79.93%
+Epoch 4 done in 1.2s | train loss=0.5249 acc=80.02%
+[val] epoch 4 | loss 0.3813 | acc 85.78%
+Saved best checkpoint to best_fmnist_cnn.pth (acc=85.78%)
+Epoch 5 [100/235] step=1040 loss=0.4830 acc=82.12%
+Epoch 5 [200/235] step=1140 loss=0.4802 acc=82.17%
+Epoch 5 done in 43276.2s | train loss=0.4771 acc=82.25%
+[val] epoch 5 | loss 0.3505 | acc 87.02%
+Saved best checkpoint to best_fmnist_cnn.pth (acc=87.02%)
+Epoch 6 [100/235] step=1275 loss=0.4541 acc=83.01%
+Epoch 6 [200/235] step=1375 loss=0.4612 acc=82.75%
+Epoch 6 done in 1.3s | train loss=0.4579 acc=82.81%
+[val] epoch 6 | loss 0.3448 | acc 87.29%
+Saved best checkpoint to best_fmnist_cnn.pth (acc=87.29%)
+Epoch 7 [100/235] step=1510 loss=0.4459 acc=83.23%
+Epoch 7 [200/235] step=1610 loss=0.4409 acc=83.57%
+Epoch 7 done in 1.3s | train loss=0.4383 acc=83.69%
+[val] epoch 7 | loss 0.3268 | acc 88.14%
+Saved best checkpoint to best_fmnist_cnn.pth (acc=88.14%)
+Epoch 8 [100/235] step=1745 loss=0.4297 acc=84.01%
+Epoch 8 [200/235] step=1845 loss=0.4295 acc=84.04%
+Epoch 8 done in 1.3s | train loss=0.4269 acc=84.12%
+[val] epoch 8 | loss 0.3300 | acc 88.06%
+Epoch 9 [100/235] step=1980 loss=0.4103 acc=84.81%
+Epoch 9 [200/235] step=2080 loss=0.4136 acc=84.52%
+Epoch 9 done in 1.3s | train loss=0.4143 acc=84.56%
+[val] epoch 9 | loss 0.3041 | acc 88.71%
+Saved best checkpoint to best_fmnist_cnn.pth (acc=88.71%)
+Epoch 10 [100/235] step=2215 loss=0.4109 acc=85.06%
+Epoch 10 [200/235] step=2315 loss=0.4061 acc=85.01%
+Epoch 10 done in 1.2s | train loss=0.4056 acc=85.01%
+[val] epoch 10 | loss 0.3007 | acc 88.95%
+Saved best checkpoint to best_fmnist_cnn.pth (acc=88.95%)
+Epoch 11 [100/235] step=2450 loss=0.3956 acc=85.44%
+Epoch 11 [200/235] step=2550 loss=0.3909 acc=85.62%
+Epoch 11 done in 1.2s | train loss=0.3911 acc=85.54%
+[val] epoch 11 | loss 0.2854 | acc 89.44%
+Saved best checkpoint to best_fmnist_cnn.pth (acc=89.44%)
+Epoch 12 [100/235] step=2685 loss=0.3861 acc=85.68%
+Epoch 12 [200/235] step=2785 loss=0.3841 acc=85.79%
+Epoch 12 done in 1.2s | train loss=0.3833 acc=85.80%
+[val] epoch 12 | loss 0.2986 | acc 89.12%
+Epoch 13 [100/235] step=2920 loss=0.3800 acc=85.90%
+Epoch 13 [200/235] step=3020 loss=0.3789 acc=85.95%
+Epoch 13 done in 1.2s | train loss=0.3763 acc=86.08%
+[val] epoch 13 | loss 0.2953 | acc 89.49%
+Saved best checkpoint to best_fmnist_cnn.pth (acc=89.49%)
+Epoch 14 [100/235] step=3155 loss=0.3664 acc=86.38%
+Epoch 14 [200/235] step=3255 loss=0.3650 acc=86.51%
+Epoch 14 done in 1.2s | train loss=0.3648 acc=86.56%
+[val] epoch 14 | loss 0.2688 | acc 90.25%
+Saved best checkpoint to best_fmnist_cnn.pth (acc=90.25%)
+Epoch 15 [100/235] step=3390 loss=0.3621 acc=86.51%
+Epoch 15 [200/235] step=3490 loss=0.3584 acc=86.69%
+Epoch 15 done in 1.2s | train loss=0.3573 acc=86.73%
+[val] epoch 15 | loss 0.2761 | acc 89.74%
+Epoch 16 [100/235] step=3625 loss=0.3544 acc=86.91%
+Epoch 16 [200/235] step=3725 loss=0.3509 acc=87.19%
+Epoch 16 done in 1.3s | train loss=0.3493 acc=87.23%
+[val] epoch 16 | loss 0.2707 | acc 90.05%
+Epoch 17 [100/235] step=3860 loss=0.3412 acc=87.31%
+Epoch 17 [200/235] step=3960 loss=0.3416 acc=87.23%
+Epoch 17 done in 1.3s | train loss=0.3442 acc=87.11%
+[val] epoch 17 | loss 0.2534 | acc 90.85%
+Saved best checkpoint to best_fmnist_cnn.pth (acc=90.85%)
+Epoch 18 [100/235] step=4095 loss=0.3324 acc=87.43%
+Epoch 18 [200/235] step=4195 loss=0.3416 acc=87.40%
+Epoch 18 done in 1.3s | train loss=0.3389 acc=87.47%
+[val] epoch 18 | loss 0.2548 | acc 90.55%
+Epoch 19 [100/235] step=4330 loss=0.3354 acc=87.72%
+Epoch 19 [200/235] step=4430 loss=0.3339 acc=87.62%
+Epoch 19 done in 1.3s | train loss=0.3334 acc=87.65%
+[val] epoch 19 | loss 0.2624 | acc 90.17%
+Epoch 20 [100/235] step=4565 loss=0.3369 acc=87.53%
+Epoch 20 [200/235] step=4665 loss=0.3337 acc=87.58%
+Epoch 20 done in 1.3s | train loss=0.3313 acc=87.65%
+[val] epoch 20 | loss 0.2506 | acc 90.82%
+Epoch 21 [100/235] step=4800 loss=0.3276 acc=87.94%
+Epoch 21 [200/235] step=4900 loss=0.3224 acc=88.09%
+Epoch 21 done in 1.3s | train loss=0.3224 acc=88.07%
+[val] epoch 21 | loss 0.2537 | acc 90.76%
+Epoch 22 [100/235] step=5035 loss=0.3222 acc=88.16%
+Epoch 22 [200/235] step=5135 loss=0.3240 acc=88.18%
+Epoch 22 done in 1.3s | train loss=0.3218 acc=88.27%
+[val] epoch 22 | loss 0.2455 | acc 90.99%
+Saved best checkpoint to best_fmnist_cnn.pth (acc=90.99%)
+Epoch 23 [100/235] step=5270 loss=0.3106 acc=88.44%
+Epoch 23 [200/235] step=5370 loss=0.3136 acc=88.39%
+Epoch 23 done in 1.2s | train loss=0.3134 acc=88.34%
+[val] epoch 23 | loss 0.2408 | acc 91.41%
+Saved best checkpoint to best_fmnist_cnn.pth (acc=91.41%)
+Epoch 24 [100/235] step=5505 loss=0.3146 acc=88.46%
+Epoch 24 [200/235] step=5605 loss=0.3132 acc=88.48%
+Epoch 24 done in 1.3s | train loss=0.3122 acc=88.60%
+[val] epoch 24 | loss 0.2354 | acc 91.55%
+Saved best checkpoint to best_fmnist_cnn.pth (acc=91.55%)
+Epoch 25 [100/235] step=5740 loss=0.3030 acc=88.68%
+Epoch 25 [200/235] step=5840 loss=0.3064 acc=88.59%
+Epoch 25 done in 1.3s | train loss=0.3074 acc=88.54%
+[val] epoch 25 | loss 0.2372 | acc 91.52%
+Epoch 26 [100/235] step=5975 loss=0.3104 acc=88.54%
+Epoch 26 [200/235] step=6075 loss=0.3079 acc=88.59%
+Epoch 26 done in 1.3s | train loss=0.3069 acc=88.67%
+[val] epoch 26 | loss 0.2345 | acc 91.61%
+Saved best checkpoint to best_fmnist_cnn.pth (acc=91.61%)
+Epoch 27 [100/235] step=6210 loss=0.2978 acc=88.84%
+Epoch 27 [200/235] step=6310 loss=0.2992 acc=88.89%
+Epoch 27 done in 1.3s | train loss=0.2995 acc=88.94%
+[val] epoch 27 | loss 0.2322 | acc 91.32%
+Epoch 28 [100/235] step=6445 loss=0.2937 acc=89.05%
+Epoch 28 [200/235] step=6545 loss=0.2971 acc=88.95%
+Epoch 28 done in 1.3s | train loss=0.2979 acc=88.92%
+[val] epoch 28 | loss 0.2316 | acc 91.54%
+Epoch 29 [100/235] step=6680 loss=0.2954 acc=89.19%
+Epoch 29 [200/235] step=6780 loss=0.2944 acc=89.17%
+Epoch 29 done in 1.2s | train loss=0.2937 acc=89.10%
+[val] epoch 29 | loss 0.2317 | acc 91.51%
+Epoch 30 [100/235] step=6915 loss=0.2901 acc=89.18%
+Epoch 30 [200/235] step=7015 loss=0.2888 acc=89.29%
+Epoch 30 done in 1.2s | train loss=0.2899 acc=89.26%
+[val] epoch 30 | loss 0.2286 | acc 91.66%
+Saved best checkpoint to best_fmnist_cnn.pth (acc=91.66%)
+Epoch 31 [100/235] step=7150 loss=0.2915 acc=89.09%
+Epoch 31 [200/235] step=7250 loss=0.2912 acc=89.16%
+Epoch 31 done in 1.3s | train loss=0.2908 acc=89.18%
+[val] epoch 31 | loss 0.2167 | acc 91.97%
+Saved best checkpoint to best_fmnist_cnn.pth (acc=91.97%)
+Epoch 32 [100/235] step=7385 loss=0.2750 acc=89.79%
+Epoch 32 [200/235] step=7485 loss=0.2750 acc=89.77%
+Epoch 32 done in 1.2s | train loss=0.2787 acc=89.67%
+[val] epoch 32 | loss 0.2175 | acc 92.00%
+Saved best checkpoint to best_fmnist_cnn.pth (acc=92.00%)
+Epoch 33 [100/235] step=7620 loss=0.2827 acc=89.62%
+Epoch 33 [200/235] step=7720 loss=0.2812 acc=89.62%
+Epoch 33 done in 1.3s | train loss=0.2800 acc=89.66%
+[val] epoch 33 | loss 0.2195 | acc 92.07%
+Saved best checkpoint to best_fmnist_cnn.pth (acc=92.07%)
+Epoch 34 [100/235] step=7855 loss=0.2686 acc=89.95%
+Epoch 34 [200/235] step=7955 loss=0.2752 acc=89.76%
+Epoch 34 done in 1.3s | train loss=0.2748 acc=89.80%
+[val] epoch 34 | loss 0.2151 | acc 92.20%
+Saved best checkpoint to best_fmnist_cnn.pth (acc=92.20%)
+Epoch 35 [100/235] step=8090 loss=0.2649 acc=90.22%
+Epoch 35 [200/235] step=8190 loss=0.2710 acc=89.98%
+Epoch 35 done in 1.3s | train loss=0.2713 acc=90.00%
+[val] epoch 35 | loss 0.2154 | acc 92.23%
+Saved best checkpoint to best_fmnist_cnn.pth (acc=92.23%)
+Epoch 36 [100/235] step=8325 loss=0.2685 acc=90.02%
+Epoch 36 [200/235] step=8425 loss=0.2672 acc=90.03%
+Epoch 36 done in 1.2s | train loss=0.2665 acc=90.04%
+[val] epoch 36 | loss 0.2232 | acc 91.78%
+Epoch 37 [100/235] step=8560 loss=0.2632 acc=90.21%
+Epoch 37 [200/235] step=8660 loss=0.2660 acc=90.12%
+Epoch 37 done in 1.3s | train loss=0.2641 acc=90.24%
+[val] epoch 37 | loss 0.2097 | acc 92.54%
+Saved best checkpoint to best_fmnist_cnn.pth (acc=92.54%)
+Epoch 38 [100/235] step=8795 loss=0.2627 acc=90.09%
+Epoch 38 [200/235] step=8895 loss=0.2626 acc=90.21%
+Epoch 38 done in 1.2s | train loss=0.2609 acc=90.29%
+[val] epoch 38 | loss 0.2049 | acc 92.48%
+Epoch 39 [100/235] step=9030 loss=0.2517 acc=90.64%
+Epoch 39 [200/235] step=9130 loss=0.2578 acc=90.46%
+Epoch 39 done in 1.2s | train loss=0.2579 acc=90.44%
+[val] epoch 39 | loss 0.2067 | acc 92.45%
+Epoch 40 [100/235] step=9265 loss=0.2599 acc=90.37%
+Epoch 40 [200/235] step=9365 loss=0.2570 acc=90.43%
+Epoch 40 done in 1.2s | train loss=0.2576 acc=90.43%
+[val] epoch 40 | loss 0.2023 | acc 92.67%
+Saved best checkpoint to best_fmnist_cnn.pth (acc=92.67%)
+Epoch 41 [100/235] step=9500 loss=0.2436 acc=91.14%
+Epoch 41 [200/235] step=9600 loss=0.2484 acc=90.91%
+Epoch 41 done in 1.2s | train loss=0.2501 acc=90.78%
+[val] epoch 41 | loss 0.2012 | acc 92.74%
+Saved best checkpoint to best_fmnist_cnn.pth (acc=92.74%)
+Epoch 42 [100/235] step=9735 loss=0.2478 acc=90.87%
+Epoch 42 [200/235] step=9835 loss=0.2513 acc=90.73%
+Epoch 42 done in 43276.2s | train loss=0.2512 acc=90.73%
+[val] epoch 42 | loss 0.2001 | acc 92.74%
+Epoch 43 [100/235] step=9970 loss=0.2528 acc=90.71%
+Epoch 43 [200/235] step=10070 loss=0.2475 acc=90.84%
+Epoch 43 done in 1.2s | train loss=0.2484 acc=90.79%
+[val] epoch 43 | loss 0.1999 | acc 92.95%
+Saved best checkpoint to best_fmnist_cnn.pth (acc=92.95%)
+Epoch 44 [100/235] step=10205 loss=0.2441 acc=91.02%
+Epoch 44 [200/235] step=10305 loss=0.2469 acc=90.86%
+Epoch 44 done in 1.2s | train loss=0.2455 acc=90.90%
+[val] epoch 44 | loss 0.1983 | acc 92.84%
+Epoch 45 [100/235] step=10440 loss=0.2501 acc=90.81%
+Epoch 45 [200/235] step=10540 loss=0.2457 acc=90.94%
+Epoch 45 done in 1.2s | train loss=0.2447 acc=90.95%
+[val] epoch 45 | loss 0.1990 | acc 92.92%
+Epoch 46 [100/235] step=10675 loss=0.2494 acc=91.01%
+Epoch 46 [200/235] step=10775 loss=0.2461 acc=90.99%
+Epoch 46 done in 1.3s | train loss=0.2459 acc=90.97%
+[val] epoch 46 | loss 0.1978 | acc 92.93%
+Epoch 47 [100/235] step=10910 loss=0.2433 acc=90.95%
+Epoch 47 [200/235] step=11010 loss=0.2443 acc=90.90%
+Epoch 47 done in 1.2s | train loss=0.2433 acc=90.98%
+[val] epoch 47 | loss 0.1978 | acc 92.94%
+Epoch 48 [100/235] step=11145 loss=0.2403 acc=91.23%
+Epoch 48 [200/235] step=11245 loss=0.2422 acc=91.03%
+Epoch 48 done in 1.2s | train loss=0.2416 acc=91.07%
+[val] epoch 48 | loss 0.1978 | acc 92.97%
+Saved best checkpoint to best_fmnist_cnn.pth (acc=92.97%)
+Epoch 49 [100/235] step=11380 loss=0.2403 acc=90.96%
+Epoch 49 [200/235] step=11480 loss=0.2407 acc=91.03%
+Epoch 49 done in 1.2s | train loss=0.2417 acc=91.00%
+[val] epoch 49 | loss 0.1981 | acc 92.94%
+Epoch 50 [100/235] step=11615 loss=0.2408 acc=90.97%
+Epoch 50 [200/235] step=11715 loss=0.2428 acc=90.98%
+Epoch 50 done in 1.2s | train loss=0.2431 acc=90.96%
+[val] epoch 50 | loss 0.1979 | acc 92.94%
+Training complete. Best val acc: 92.97%
+elapsed: 78.64160370826721 seconds.
+Warning: Resource leak detected by SharedSignalPool, 308 Signals leaked.
+(rocm-pytorch) john@llm-agents:~/open-source/py-proj/se-fashionmnist$ 

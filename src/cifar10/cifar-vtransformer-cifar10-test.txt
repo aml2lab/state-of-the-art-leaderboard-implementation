@@ -1,0 +1,656 @@
+conda activate rocm-pytorch
+(base) john@llm-agents:~/open-source/py-proj/se-fashionmnist$ conda activate rocm-pytorch
+(rocm-pytorch) john@llm-agents:~/open-source/py-proj/se-fashionmnist$ /home/john/miniconda3/envs/rocm-pytorch/bin/python /home/john/open-source/py-proj/se-fashionmnist/cipar-vtransformer.py
+model.safetensors: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 22.9M/22.9M [00:00<00:00, 47.7MB/s]
+AUTOTUNE addmm(25216x768, 25216x192, 192x768)
+  triton_mm_117 0.1434 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_105 0.1434 ms 99.9% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_104 0.1443 ms 99.4% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_116 0.1448 ms 99.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_95 0.1478 ms 97.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_94 0.1491 ms 96.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_92 0.1600 ms 89.6% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_93 0.1607 ms 89.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  bias_addmm 0.1798 ms 79.7% 
+  addmm 0.1803 ms 79.5% 
+SingleProcess AUTOTUNE benchmarking takes 4.6155 seconds and 0.0031 seconds precompiling for 40 choices
+AUTOTUNE convolution(128x3x224x224, 192x3x16x16)
+  triton_convolution2d_6 0.8381 ms 100.0% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=256, BLOCK_N=64, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_convolution2d_7 0.8412 ms 99.6% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=256, BLOCK_N=64, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_convolution2d_13 1.0048 ms 83.4% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_convolution2d_12 1.0130 ms 82.7% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_convolution2d_5 1.0942 ms 76.6% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=128, BLOCK_N=128, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_convolution2d_1 1.1159 ms 75.1% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=64, BLOCK_N=256, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_convolution2d_4 1.1199 ms 74.8% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=128, BLOCK_N=128, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_convolution2d_0 1.1502 ms 72.9% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=64, BLOCK_N=256, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_convolution2d_10 1.5383 ms 54.5% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=256, BLOCK_N=64, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_convolution2d_11 1.5462 ms 54.2% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=256, BLOCK_N=64, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 43277.6922 seconds and 0.0020 seconds precompiling for 15 choices
+AUTOTUNE addmm(25216x576, 25216x192, 192x576)
+  triton_mm_18 0.1184 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_19 0.1185 ms 99.9% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_29 0.1226 ms 96.6% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_28 0.1227 ms 96.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_41 0.1248 ms 94.9% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_40 0.1260 ms 94.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_16 0.1326 ms 89.3% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_17 0.1327 ms 89.3% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_24 0.1438 ms 82.3% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=2
+  triton_mm_25 0.1442 ms 82.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=2
+SingleProcess AUTOTUNE benchmarking takes -43270.5667 seconds and 0.0040 seconds precompiling for 40 choices
+AUTOTUNE mm(25216x192, 192x192)
+  triton_mm_56 0.0645 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_57 0.0646 ms 99.9% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  mm 0.0724 ms 89.2% 
+  triton_mm_79 0.0730 ms 88.4% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_78 0.0732 ms 88.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_63 0.0734 ms 87.9% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=2
+  triton_mm_62 0.0735 ms 87.8% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=2
+  triton_mm_54 0.0737 ms 87.6% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_55 0.0739 ms 87.3% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_66 0.0746 ms 86.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 4.3544 seconds and 0.0058 seconds precompiling for 39 choices
+AUTOTUNE mm(25216x768, 768x192)
+  triton_mm_129 0.2345 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_128 0.2363 ms 99.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_137 0.2531 ms 92.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_136 0.2537 ms 92.4% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_143 0.2571 ms 91.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_142 0.2576 ms 91.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_131 0.2583 ms 90.8% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_130 0.2592 ms 90.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_146 0.2623 ms 89.4% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_147 0.2631 ms 89.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+SingleProcess AUTOTUNE benchmarking takes 4.4055 seconds and 0.0032 seconds precompiling for 39 choices
+AUTOTUNE addmm(128x10, 128x192, 192x10)
+  triton_mm_1854 0.0157 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=64, BLOCK_N=16, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_1855 0.0158 ms 99.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=64, BLOCK_N=16, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_1856 0.0158 ms 99.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=32, BLOCK_N=16, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=2
+  triton_mm_1857 0.0158 ms 99.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=32, BLOCK_N=16, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=2
+  triton_mm_1847 0.0160 ms 98.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=32, BLOCK_N=16, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=2
+  triton_mm_1846 0.0160 ms 98.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=32, BLOCK_N=16, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=2
+  triton_mm_1838 0.0160 ms 98.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=16, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_1839 0.0160 ms 98.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=16, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_1842 0.0160 ms 98.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=16, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_1843 0.0162 ms 97.3% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=16, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 2.6779 seconds and 0.0024 seconds precompiling for 24 choices
+/home/john/miniconda3/envs/rocm-pytorch/lib/python3.12/site-packages/torch/autograd/function.py:575: UserWarning: Using AOTriton backend for Flash Attention forward... (Triggered internally at /pytorch/aten/src/ATen/native/transformers/hip/flash_attn/flash_api.h:267.)
+  return super().apply(*args, **kwargs)  # type: ignore[misc]
+AUTOTUNE mm(25216x192, 192x768)
+  mm 0.1110 ms 100.0% 
+  triton_mm_1924 0.1247 ms 89.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_1925 0.1247 ms 89.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_1912 0.1252 ms 88.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_1913 0.1253 ms 88.6% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_1937 0.1259 ms 88.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_1936 0.1269 ms 87.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_1910 0.1283 ms 86.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_1911 0.1287 ms 86.3% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_1918 0.1309 ms 84.8% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 3.9505 seconds and 0.0035 seconds precompiling for 39 choices
+AUTOTUNE mm(192x25216, 25216x768)
+  triton_mm_1971 0.2609 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  mm 0.2629 ms 99.2% 
+  triton_mm_1970 0.2630 ms 99.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_1973 0.3854 ms 67.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_1972 0.3862 ms 67.6% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_1984 0.4441 ms 58.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_1985 0.4448 ms 58.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_1957 0.4500 ms 58.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_1956 0.4501 ms 58.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_1976 0.4557 ms 57.3% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=32, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+SingleProcess AUTOTUNE benchmarking takes 4.8161 seconds and 0.0036 seconds precompiling for 39 choices
+AUTOTUNE mm(768x25216, 25216x192)
+  mm 0.2603 ms 100.0% 
+  triton_mm_2046 0.2641 ms 98.6% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_2047 0.2647 ms 98.3% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_2049 0.3883 ms 67.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_2048 0.3894 ms 66.9% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_2060 0.4232 ms 61.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_2061 0.4233 ms 61.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_2033 0.4507 ms 57.8% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_2032 0.4518 ms 57.6% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_2052 0.4596 ms 56.6% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=32, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+SingleProcess AUTOTUNE benchmarking takes 4.8265 seconds and 0.0025 seconds precompiling for 39 choices
+AUTOTUNE mm(576x25216, 25216x192)
+  triton_mm_2199 0.2549 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_2198 0.2553 ms 99.9% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  mm 0.2566 ms 99.4% 
+  triton_mm_2200 0.3850 ms 66.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_2201 0.3855 ms 66.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_2212 0.3965 ms 64.3% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_2213 0.3975 ms 64.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_2205 0.4113 ms 62.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=32, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_2204 0.4116 ms 61.9% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=32, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_2184 0.4481 ms 56.9% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 4.7787 seconds and 0.0032 seconds precompiling for 39 choices
+AUTOTUNE mm(192x25216, 25216x192)
+  triton_mm_2123 0.1738 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_2122 0.1742 ms 99.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  mm 0.2170 ms 80.1% 
+  triton_mm_2136 0.3801 ms 45.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_2125 0.3801 ms 45.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_2137 0.3806 ms 45.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_2124 0.3808 ms 45.6% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_2128 0.3937 ms 44.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=32, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_2129 0.3941 ms 44.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=32, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_2109 0.4423 ms 39.3% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 4.6301 seconds and 0.0032 seconds precompiling for 39 choices
+AUTOTUNE mm(10x128, 128x192)
+  triton_mm_1906 0.0155 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=16, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_1907 0.0156 ms 99.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=16, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_1892 0.0157 ms 98.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=16, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_1893 0.0158 ms 98.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=16, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_1902 0.0158 ms 98.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=16, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=2
+  triton_mm_1903 0.0158 ms 98.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=16, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=2
+  triton_mm_1904 0.0158 ms 98.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=16, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_1908 0.0158 ms 98.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=16, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=2
+  triton_mm_1905 0.0159 ms 97.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=16, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_1909 0.0159 ms 97.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=16, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=2
+SingleProcess AUTOTUNE benchmarking takes 2.4022 seconds and 0.0021 seconds precompiling for 25 choices
+AUTOTUNE mm(128x10, 10x192)
+  triton_mm_1880 0.0139 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=32, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_1874 0.0139 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_1875 0.0139 ms 99.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_1881 0.0139 ms 99.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=32, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_1884 0.0139 ms 99.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_1885 0.0139 ms 99.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_1877 0.0146 ms 94.8% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_1876 0.0146 ms 94.8% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_1882 0.0148 ms 93.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_1883 0.0148 ms 93.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 2.5786 seconds and 0.0026 seconds precompiling for 27 choices
+AUTOTUNE mm(25216x768, 768x192)
+  triton_mm_2017 0.1707 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_2016 0.1707 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_2015 0.2038 ms 83.8% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=32, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_2008 0.2046 ms 83.4% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_2014 0.2047 ms 83.4% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=32, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_2009 0.2053 ms 83.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_2022 0.2065 ms 82.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_2023 0.2069 ms 82.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_2011 0.2160 ms 79.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_2010 0.2171 ms 78.6% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+SingleProcess AUTOTUNE benchmarking takes 3.9669 seconds and 0.0030 seconds precompiling for 39 choices
+AUTOTUNE mm(25216x192, 192x192)
+  triton_mm_2091 0.0618 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=32, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_2090 0.0618 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=32, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_2087 0.0621 ms 99.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_2086 0.0624 ms 99.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_2099 0.0634 ms 97.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_2098 0.0636 ms 97.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_2071 0.0647 ms 95.6% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_2066 0.0647 ms 95.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_2070 0.0648 ms 95.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_2067 0.0648 ms 95.4% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 3.6849 seconds and 0.0029 seconds precompiling for 39 choices
+AUTOTUNE mm(25216x576, 576x192)
+  triton_mm_2142 0.1384 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_2143 0.1386 ms 99.9% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_2169 0.1388 ms 99.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_2168 0.1389 ms 99.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_2156 0.1411 ms 98.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_2157 0.1413 ms 98.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_2146 0.1414 ms 97.9% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_2147 0.1415 ms 97.9% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  mm 0.1427 ms 97.0% 
+  triton_mm_2166 0.1440 ms 96.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=32, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+SingleProcess AUTOTUNE benchmarking takes 3.6892 seconds and 0.0027 seconds precompiling for 39 choices
+/home/john/miniconda3/envs/rocm-pytorch/lib/python3.12/site-packages/torch/autograd/graph.py:823: UserWarning: Using AOTriton backend for Flash Attention backward... (Triggered internally at /pytorch/aten/src/ATen/native/transformers/hip/flash_attn/flash_api.h:452.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+Epoch 1 [50/391] step=50 loss=1.9730 acc=30.89%
+Epoch 1 [100/391] step=100 loss=1.5731 acc=44.55%
+Epoch 1 [150/391] step=150 loss=1.2958 acc=54.58%
+Epoch 1 [200/391] step=200 loss=1.1120 acc=61.20%
+Epoch 1 [250/391] step=250 loss=0.9892 acc=65.57%
+Epoch 1 [300/391] step=300 loss=0.8944 acc=68.91%
+Epoch 1 [350/391] step=350 loss=0.8211 acc=71.50%
+AUTOTUNE addmm(15760x768, 15760x192, 192x768)
+  triton_mm_5652 0.1020 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_5653 0.1020 ms 99.9% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_5663 0.1061 ms 96.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_5674 0.1062 ms 96.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_5675 0.1066 ms 95.6% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_5662 0.1068 ms 95.4% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_5651 0.1150 ms 88.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_5650 0.1152 ms 88.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_5658 0.1346 ms 75.8% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=2
+  triton_mm_5659 0.1346 ms 75.8% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=2
+SingleProcess AUTOTUNE benchmarking takes 3.7621 seconds and 0.0040 seconds precompiling for 40 choices
+AUTOTUNE convolution(80x3x224x224, 192x3x16x16)
+  triton_convolution2d_5565 0.4909 ms 100.0% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=256, BLOCK_N=64, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_convolution2d_5564 0.4967 ms 98.8% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=256, BLOCK_N=64, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_convolution2d_5571 0.6520 ms 75.3% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_convolution2d_5570 0.6590 ms 74.5% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_convolution2d_5563 0.7311 ms 67.1% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=128, BLOCK_N=128, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_convolution2d_5562 0.7345 ms 66.8% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=128, BLOCK_N=128, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_convolution2d_5559 0.7521 ms 65.3% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=64, BLOCK_N=256, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_convolution2d_5558 0.7568 ms 64.9% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=64, BLOCK_N=256, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_convolution2d_5568 0.8265 ms 59.4% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=256, BLOCK_N=64, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_convolution2d_5569 0.8290 ms 59.2% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=256, BLOCK_N=64, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 2.0088 seconds and 0.0014 seconds precompiling for 15 choices
+AUTOTUNE addmm(15760x576, 15760x192, 192x576)
+  triton_mm_5576 0.0832 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_5577 0.0842 ms 98.9% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_5587 0.0885 ms 94.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_5586 0.0900 ms 92.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_5599 0.0917 ms 90.8% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_5598 0.0920 ms 90.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_5574 0.0957 ms 87.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_5575 0.0965 ms 86.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_5583 0.1089 ms 76.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=2
+  addmm 0.1107 ms 75.2% 
+SingleProcess AUTOTUNE benchmarking takes 3.7581 seconds and 0.0040 seconds precompiling for 40 choices
+AUTOTUNE mm(15760x192, 192x192)
+  triton_mm_5614 0.0434 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_5615 0.0434 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_5636 0.0467 ms 92.9% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_5637 0.0468 ms 92.6% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  mm 0.0482 ms 90.0% 
+  triton_mm_5621 0.0515 ms 84.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=2
+  triton_mm_5612 0.0516 ms 84.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_5613 0.0517 ms 83.9% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_5624 0.0518 ms 83.8% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_5625 0.0520 ms 83.4% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 3.5513 seconds and 0.0034 seconds precompiling for 39 choices
+AUTOTUNE mm(15760x768, 768x192)
+  triton_mm_5687 0.1678 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_5686 0.1692 ms 99.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_5694 0.1742 ms 96.3% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_5695 0.1748 ms 96.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_5689 0.1784 ms 94.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_5688 0.1792 ms 93.6% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_5701 0.1855 ms 90.4% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_5716 0.1858 ms 90.3% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_5717 0.1872 ms 89.6% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_5711 0.1874 ms 89.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+SingleProcess AUTOTUNE benchmarking takes 3.5965 seconds and 0.0036 seconds precompiling for 39 choices
+AUTOTUNE addmm(80x10, 80x192, 192x10)
+  triton_mm_7405 0.0162 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=32, BLOCK_N=16, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=2
+  triton_mm_7414 0.0162 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=32, BLOCK_N=16, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=2
+  triton_mm_7415 0.0162 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=32, BLOCK_N=16, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=2
+  triton_mm_7404 0.0163 ms 99.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=32, BLOCK_N=16, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=2
+  triton_mm_7412 0.0163 ms 99.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=64, BLOCK_N=16, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_7396 0.0164 ms 99.3% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=16, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_7397 0.0164 ms 99.3% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=16, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_7413 0.0164 ms 98.8% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=64, BLOCK_N=16, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_7398 0.0168 ms 96.9% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=16, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_7399 0.0168 ms 96.9% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=16, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+SingleProcess AUTOTUNE benchmarking takes 2.2069 seconds and 0.0019 seconds precompiling for 24 choices
+AUTOTUNE mm(15760x192, 192x768)
+  mm 0.0853 ms 100.0% 
+  triton_mm_7482 0.0888 ms 96.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_7483 0.0889 ms 96.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_7469 0.0898 ms 95.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_7477 0.0904 ms 94.4% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_7494 0.0904 ms 94.3% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_7495 0.0904 ms 94.3% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_7468 0.0905 ms 94.3% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_7476 0.0907 ms 94.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_7487 0.0914 ms 93.4% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+SingleProcess AUTOTUNE benchmarking takes 3.4060 seconds and 0.0051 seconds precompiling for 39 choices
+AUTOTUNE mm(192x15760, 15760x768)
+  mm 0.1738 ms 100.0% 
+  triton_mm_7528 0.2226 ms 78.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_7529 0.2227 ms 78.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_7530 0.2566 ms 67.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_7531 0.2569 ms 67.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_7534 0.2773 ms 62.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=32, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_7535 0.2785 ms 62.4% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=32, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_7542 0.2803 ms 62.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_7543 0.2812 ms 61.8% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_7515 0.3017 ms 57.6% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 4.3549 seconds and 0.0056 seconds precompiling for 39 choices
+AUTOTUNE mm(768x15760, 15760x192)
+  mm 0.1704 ms 100.0% 
+  triton_mm_7604 0.2300 ms 74.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_7605 0.2313 ms 73.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_7606 0.2617 ms 65.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_7607 0.2623 ms 65.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_7618 0.2776 ms 61.4% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_7619 0.2779 ms 61.3% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_7611 0.2891 ms 59.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=32, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_7610 0.2892 ms 58.9% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=32, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_7591 0.3048 ms 55.9% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 4.4337 seconds and 0.0046 seconds precompiling for 39 choices
+AUTOTUNE mm(576x15760, 15760x192)
+  mm 0.1683 ms 100.0% 
+  triton_mm_7756 0.2036 ms 82.6% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_7757 0.2047 ms 82.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_7759 0.2618 ms 64.3% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_7758 0.2636 ms 63.8% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_7763 0.2694 ms 62.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=32, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_7762 0.2697 ms 62.4% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=32, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_7770 0.2704 ms 62.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_7771 0.2705 ms 62.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_7743 0.3049 ms 55.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 4.3331 seconds and 0.0032 seconds precompiling for 39 choices
+AUTOTUNE mm(192x15760, 15760x192)
+  mm 0.1398 ms 100.0% 
+  triton_mm_7680 0.1512 ms 92.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_7681 0.1514 ms 92.4% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_7682 0.2553 ms 54.8% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_7683 0.2556 ms 54.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_7687 0.2565 ms 54.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=32, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_7686 0.2566 ms 54.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=32, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_7694 0.2580 ms 54.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_7695 0.2582 ms 54.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_7667 0.2949 ms 47.4% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 4.2693 seconds and 0.0037 seconds precompiling for 39 choices
+AUTOTUNE mm(10x80, 80x192)
+  mm 0.0170 ms 100.0% 
+  triton_mm_7450 0.0189 ms 90.3% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=16, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_7447 0.0220 ms 77.6% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=16, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_7461 0.0220 ms 77.6% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=16, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=2
+  triton_mm_7448 0.0236 ms 72.3% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=16, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_7452 0.0318 ms 53.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=16, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=2
+  triton_mm_7459 0.0371 ms 45.9% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=16, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_7446 0.0407 ms 41.8% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=16, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_7463 0.0421 ms 40.4% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=16, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_7466 0.0473 ms 36.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=16, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=2
+SingleProcess AUTOTUNE benchmarking takes 2.3902 seconds and 0.0030 seconds precompiling for 25 choices
+AUTOTUNE mm(80x10, 10x192)
+  mm 0.0152 ms 100.0% 
+  triton_mm_7426 0.0207 ms 73.4% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=2
+  triton_mm_7421 0.0256 ms 59.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_7427 0.0275 ms 55.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=2
+  triton_mm_7419 0.0398 ms 38.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_7420 0.0457 ms 33.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_7425 0.0468 ms 32.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_7438 0.0504 ms 30.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=32, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_7429 0.0524 ms 29.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_7423 0.0541 ms 28.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 2.5078 seconds and 0.0029 seconds precompiling for 27 choices
+AUTOTUNE mm(15760x768, 768x192)
+  triton_mm_7575 0.1223 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_7566 0.1322 ms 92.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_7567 0.1326 ms 92.3% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_7574 0.1335 ms 91.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_7573 0.1384 ms 88.4% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=32, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_7572 0.1387 ms 88.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=32, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_7581 0.1396 ms 87.6% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_7580 0.1405 ms 87.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_7569 0.1488 ms 82.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_7568 0.1495 ms 81.8% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+SingleProcess AUTOTUNE benchmarking takes 3.5370 seconds and 0.0030 seconds precompiling for 39 choices
+AUTOTUNE mm(15760x192, 192x192)
+  mm 0.0492 ms 100.0% 
+  triton_mm_7623 0.0629 ms 78.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_7630 0.0661 ms 74.4% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=2
+  triton_mm_7622 0.0674 ms 73.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_7635 0.0690 ms 71.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_7642 0.0703 ms 69.9% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_7621 0.0731 ms 67.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_7654 0.0752 ms 65.4% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_7629 0.0762 ms 64.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_7625 0.0781 ms 62.9% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 3.5719 seconds and 0.0032 seconds precompiling for 39 choices
+AUTOTUNE mm(15760x576, 576x192)
+  triton_mm_7701 0.0918 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_7722 0.0971 ms 94.6% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_7724 0.0978 ms 93.9% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=32, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_7714 0.0988 ms 93.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_7720 0.0991 ms 92.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_7696 0.0992 ms 92.6% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_7727 0.1029 ms 89.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_7710 0.1040 ms 88.3% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_7699 0.1045 ms 87.9% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_7707 0.1052 ms 87.3% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=2
+SingleProcess AUTOTUNE benchmarking takes 3.4091 seconds and 0.0028 seconds precompiling for 39 choices
+Epoch 1 finished in 489.7s | train loss 0.7743 | train acc 73.10%
+AUTOTUNE mm(50432x192, 192x768)
+  triton_mm_11209 0.2228 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_11208 0.2257 ms 98.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  mm 0.2272 ms 98.0% 
+  triton_mm_11232 0.2300 ms 96.9% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_11233 0.2316 ms 96.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_11220 0.2345 ms 95.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_11221 0.2346 ms 95.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_11219 0.2537 ms 87.8% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_11218 0.2538 ms 87.8% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_11211 0.2767 ms 80.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 3.7753 seconds and 0.0045 seconds precompiling for 39 choices
+AUTOTUNE convolution(256x3x224x224, 192x3x16x16)
+  triton_convolution2d_11129 1.8677 ms 100.0% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_convolution2d_11122 1.8979 ms 98.4% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=256, BLOCK_N=64, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_convolution2d_11128 1.8993 ms 98.3% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_convolution2d_11123 1.9091 ms 97.8% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=256, BLOCK_N=64, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_convolution2d_11121 2.1230 ms 88.0% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=128, BLOCK_N=128, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_convolution2d_11120 2.1291 ms 87.7% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=128, BLOCK_N=128, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_convolution2d_11117 2.2501 ms 83.0% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=64, BLOCK_N=256, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_convolution2d_11116 2.2661 ms 82.4% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=64, BLOCK_N=256, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_convolution2d_11127 3.2051 ms 58.3% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=256, BLOCK_N=64, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_convolution2d_11126 3.2200 ms 58.0% ALLOW_TF32=True, BLOCK_K=16, BLOCK_M=256, BLOCK_N=64, GROUPS=1, KERNEL_H=16, KERNEL_W=16, PADDING_H=0, PADDING_W=0, STRIDE_H=16, STRIDE_W=16, UNROLL=False, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 3.1117 seconds and 0.0017 seconds precompiling for 15 choices
+AUTOTUNE addmm(50432x576, 50432x192, 192x576)
+  triton_mm_11157 0.2117 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_11156 0.2133 ms 99.3% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_11134 0.2171 ms 97.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_11135 0.2191 ms 96.6% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_11145 0.2273 ms 93.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_11144 0.2405 ms 88.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_11133 0.2544 ms 83.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_11132 0.2544 ms 83.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_11141 0.2793 ms 75.8% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=2
+  triton_mm_11140 0.2795 ms 75.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=2
+SingleProcess AUTOTUNE benchmarking takes 3.8744 seconds and 0.0029 seconds precompiling for 40 choices
+AUTOTUNE mm(50432x192, 192x192)
+  mm 0.1299 ms 100.0% 
+  triton_mm_11195 0.1756 ms 74.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_11172 0.1779 ms 73.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_11205 0.1821 ms 71.3% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_11193 0.1821 ms 71.3% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_11196 0.1853 ms 70.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=32, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_11171 0.1870 ms 69.4% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_11183 0.1948 ms 66.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_11179 0.1995 ms 65.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=32, BLOCK_N=32, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=2
+  triton_mm_11170 0.2012 ms 64.6% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+SingleProcess AUTOTUNE benchmarking takes 3.6166 seconds and 0.0028 seconds precompiling for 39 choices
+AUTOTUNE mm(50432x768, 768x192)
+  triton_mm_11244 0.4335 ms 100.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_11245 0.4351 ms 99.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_11252 0.4416 ms 98.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_11253 0.4428 ms 97.9% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_11247 0.4510 ms 96.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+  triton_mm_11246 0.4510 ms 96.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_11258 0.4516 ms 96.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_11259 0.4525 ms 95.8% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_11262 0.4573 ms 94.8% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_11263 0.4596 ms 94.3% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=8
+SingleProcess AUTOTUNE benchmarking takes 4.6945 seconds and 0.0026 seconds precompiling for 39 choices
+AUTOTUNE addmm(256x10, 256x192, 192x10)
+  addmm 0.0230 ms 100.0% 
+  bias_addmm 0.0232 ms 99.3% 
+  triton_mm_12974 0.1373 ms 16.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=128, BLOCK_N=16, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_12969 0.1509 ms 15.2% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=32, BLOCK_N=16, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=2
+  triton_mm_12967 0.1591 ms 14.5% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=64, BLOCK_N=16, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_12961 0.1614 ms 14.3% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=128, BLOCK_N=16, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_12966 0.1635 ms 14.1% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=128, BLOCK_M=64, BLOCK_N=16, B_PROLOGUE_CAST_TYPE=None, EVEN_K=False, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+  triton_mm_12956 0.1640 ms 14.0% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=32, BLOCK_M=128, BLOCK_N=16, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=8
+  triton_mm_12959 0.1658 ms 13.9% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=16, BLOCK_M=64, BLOCK_N=16, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=16, num_stages=2, num_warps=4
+  triton_mm_12960 0.1678 ms 13.7% ACC_TYPE='tl.float32', ALLOW_TF32=False, BLOCK_K=64, BLOCK_M=128, BLOCK_N=16, B_PROLOGUE_CAST_TYPE=None, EVEN_K=True, GROUP_M=8, matrix_instr_nonkdim=0, num_stages=2, num_warps=4
+SingleProcess AUTOTUNE benchmarking takes 2.4608 seconds and 0.0015 seconds precompiling for 24 choices
+[val] epoch 1 | loss 0.1895 | acc 93.69%
+Saved checkpoint to best_vit_cifar10.pth (acc=93.69%)
+Epoch 2 [50/391] step=441 loss=0.3395 acc=88.77%
+Epoch 2 [100/391] step=491 loss=0.3328 acc=88.91%
+Epoch 2 [150/391] step=541 loss=0.3295 acc=88.86%
+Epoch 2 [200/391] step=591 loss=0.3236 acc=89.03%
+Epoch 2 [250/391] step=641 loss=0.3202 acc=89.17%
+Epoch 2 [300/391] step=691 loss=0.3209 acc=89.15%
+Epoch 2 [350/391] step=741 loss=0.3195 acc=89.13%
+Epoch 2 finished in 88.6s | train loss 0.3185 | train acc 89.18%
+[val] epoch 2 | loss 0.1846 | acc 93.57%
+Epoch 3 [50/391] step=832 loss=0.3336 acc=88.53%
+Epoch 3 [100/391] step=882 loss=0.3238 acc=88.95%
+Epoch 3 [150/391] step=932 loss=0.3168 acc=89.29%
+Epoch 3 [200/391] step=982 loss=0.3210 acc=89.13%
+Epoch 3 [250/391] step=1032 loss=0.3253 acc=88.93%
+Epoch 3 [300/391] step=1082 loss=0.3235 acc=88.91%
+Epoch 3 [350/391] step=1132 loss=0.3278 acc=88.76%
+Epoch 3 finished in 85.2s | train loss 0.3301 | train acc 88.63%
+[val] epoch 3 | loss 0.2002 | acc 93.25%
+Epoch 4 [50/391] step=1223 loss=0.3271 acc=88.89%
+Epoch 4 [100/391] step=1273 loss=0.3423 acc=88.43%
+Epoch 4 [150/391] step=1323 loss=0.3433 acc=88.41%
+Epoch 4 [200/391] step=1373 loss=0.3466 acc=88.38%
+Epoch 4 [250/391] step=1423 loss=0.3531 acc=88.02%
+Epoch 4 [300/391] step=1473 loss=0.3560 acc=87.90%
+Epoch 4 [350/391] step=1523 loss=0.3587 acc=87.82%
+Epoch 4 finished in 43359.7s | train loss 0.3630 | train acc 87.66%
+[val] epoch 4 | loss 0.2221 | acc 92.58%
+Epoch 5 [50/391] step=1614 loss=0.3644 acc=87.47%
+Epoch 5 [100/391] step=1664 loss=0.3758 acc=87.09%
+Epoch 5 [150/391] step=1714 loss=0.3760 acc=87.21%
+Epoch 5 [200/391] step=1764 loss=0.3774 acc=87.10%
+Epoch 5 [250/391] step=1814 loss=0.3821 acc=86.95%
+Epoch 5 [300/391] step=1864 loss=0.3855 acc=86.85%
+Epoch 5 [350/391] step=1914 loss=0.3897 acc=86.71%
+Epoch 5 finished in 84.7s | train loss 0.3938 | train acc 86.55%
+[val] epoch 5 | loss 0.2562 | acc 91.02%
+Epoch 6 [50/391] step=2005 loss=0.3883 acc=87.12%
+Epoch 6 [100/391] step=2055 loss=0.3808 acc=87.14%
+Epoch 6 [150/391] step=2105 loss=0.3837 acc=86.86%
+Epoch 6 [200/391] step=2155 loss=0.3870 acc=86.74%
+Epoch 6 [250/391] step=2205 loss=0.3941 acc=86.45%
+Epoch 6 [300/391] step=2255 loss=0.3947 acc=86.47%
+Epoch 6 [350/391] step=2305 loss=0.3962 acc=86.40%
+Epoch 6 finished in 84.8s | train loss 0.3986 | train acc 86.29%
+[val] epoch 6 | loss 0.2424 | acc 91.92%
+Epoch 7 [50/391] step=2396 loss=0.3704 acc=87.20%
+Epoch 7 [100/391] step=2446 loss=0.3695 acc=87.26%
+Epoch 7 [150/391] step=2496 loss=0.3711 acc=87.31%
+Epoch 7 [200/391] step=2546 loss=0.3733 acc=87.23%
+Epoch 7 [250/391] step=2596 loss=0.3710 acc=87.32%
+Epoch 7 [300/391] step=2646 loss=0.3726 acc=87.27%
+Epoch 7 [350/391] step=2696 loss=0.3743 acc=87.23%
+Epoch 7 finished in 84.5s | train loss 0.3753 | train acc 87.21%
+[val] epoch 7 | loss 0.2172 | acc 92.62%
+Epoch 8 [50/391] step=2787 loss=0.3356 acc=88.89%
+Epoch 8 [100/391] step=2837 loss=0.3437 acc=88.36%
+Epoch 8 [150/391] step=2887 loss=0.3428 acc=88.22%
+Epoch 8 [200/391] step=2937 loss=0.3441 acc=88.04%
+Epoch 8 [250/391] step=2987 loss=0.3460 acc=87.99%
+Epoch 8 [300/391] step=3037 loss=0.3450 acc=88.03%
+Epoch 8 [350/391] step=3087 loss=0.3451 acc=88.08%
+Epoch 8 finished in 83.3s | train loss 0.3467 | train acc 88.05%
+[val] epoch 8 | loss 0.2423 | acc 91.45%
+Epoch 9 [50/391] step=3178 loss=0.3034 acc=89.61%
+Epoch 9 [100/391] step=3228 loss=0.3191 acc=89.10%
+Epoch 9 [150/391] step=3278 loss=0.3158 acc=89.13%
+Epoch 9 [200/391] step=3328 loss=0.3185 acc=88.89%
+Epoch 9 [250/391] step=3378 loss=0.3149 acc=89.02%
+Epoch 9 [300/391] step=3428 loss=0.3169 acc=88.94%
+Epoch 9 [350/391] step=3478 loss=0.3169 acc=88.99%
+Epoch 9 finished in 86.7s | train loss 0.3152 | train acc 89.04%
+[val] epoch 9 | loss 0.2085 | acc 92.89%
+Epoch 10 [50/391] step=3569 loss=0.2800 acc=90.30%
+Epoch 10 [100/391] step=3619 loss=0.2785 acc=90.44%
+Epoch 10 [150/391] step=3669 loss=0.2836 acc=90.20%
+Epoch 10 [200/391] step=3719 loss=0.2843 acc=90.16%
+Epoch 10 [250/391] step=3769 loss=0.2841 acc=90.16%
+Epoch 10 [300/391] step=3819 loss=0.2826 acc=90.14%
+Epoch 10 [350/391] step=3869 loss=0.2812 acc=90.21%
+Epoch 10 finished in 86.3s | train loss 0.2802 | train acc 90.24%
+[val] epoch 10 | loss 0.2166 | acc 92.79%
+Epoch 11 [50/391] step=3960 loss=0.2503 acc=91.38%
+Epoch 11 [100/391] step=4010 loss=0.2582 acc=91.06%
+Epoch 11 [150/391] step=4060 loss=0.2600 acc=91.01%
+Epoch 11 [200/391] step=4110 loss=0.2599 acc=90.93%
+Epoch 11 [250/391] step=4160 loss=0.2543 acc=91.13%
+Epoch 11 [300/391] step=4210 loss=0.2540 acc=91.14%
+Epoch 11 [350/391] step=4260 loss=0.2528 acc=91.23%
+Epoch 11 finished in 84.5s | train loss 0.2517 | train acc 91.27%
+[val] epoch 11 | loss 0.1845 | acc 93.75%
+Saved checkpoint to best_vit_cifar10.pth (acc=93.75%)
+Epoch 12 [50/391] step=4351 loss=0.2086 acc=92.73%
+Epoch 12 [100/391] step=4401 loss=0.2116 acc=92.62%
+Epoch 12 [150/391] step=4451 loss=0.2159 acc=92.36%
+Epoch 12 [200/391] step=4501 loss=0.2201 acc=92.28%
+Epoch 12 [250/391] step=4551 loss=0.2182 acc=92.33%
+Epoch 12 [300/391] step=4601 loss=0.2178 acc=92.40%
+Epoch 12 [350/391] step=4651 loss=0.2161 acc=92.47%
+Epoch 12 finished in 84.7s | train loss 0.2157 | train acc 92.48%
+[val] epoch 12 | loss 0.1658 | acc 94.39%
+Saved checkpoint to best_vit_cifar10.pth (acc=94.39%)
+Epoch 13 [50/391] step=4742 loss=0.1873 acc=93.41%
+Epoch 13 [100/391] step=4792 loss=0.1867 acc=93.41%
+Epoch 13 [150/391] step=4842 loss=0.1847 acc=93.46%
+Epoch 13 [200/391] step=4892 loss=0.1813 acc=93.55%
+Epoch 13 [250/391] step=4942 loss=0.1796 acc=93.66%
+Epoch 13 [300/391] step=4992 loss=0.1805 acc=93.66%
+Epoch 13 [350/391] step=5042 loss=0.1803 acc=93.63%
+Epoch 13 finished in 85.0s | train loss 0.1808 | train acc 93.60%
+[val] epoch 13 | loss 0.1403 | acc 95.51%
+Saved checkpoint to best_vit_cifar10.pth (acc=95.51%)
+Epoch 14 [50/391] step=5133 loss=0.1574 acc=94.33%
+Epoch 14 [100/391] step=5183 loss=0.1585 acc=94.43%
+Epoch 14 [150/391] step=5233 loss=0.1519 acc=94.69%
+Epoch 14 [200/391] step=5283 loss=0.1516 acc=94.68%
+Epoch 14 [250/391] step=5333 loss=0.1517 acc=94.66%
+Epoch 14 [300/391] step=5383 loss=0.1480 acc=94.78%
+Epoch 14 [350/391] step=5433 loss=0.1478 acc=94.78%
+Epoch 14 finished in 86.0s | train loss 0.1453 | train acc 94.90%
+[val] epoch 14 | loss 0.1504 | acc 95.15%
+Epoch 15 [50/391] step=5524 loss=0.1274 acc=95.61%
+Epoch 15 [100/391] step=5574 loss=0.1218 acc=95.82%
+Epoch 15 [150/391] step=5624 loss=0.1173 acc=95.95%
+Epoch 15 [200/391] step=5674 loss=0.1185 acc=95.89%
+Epoch 15 [250/391] step=5724 loss=0.1170 acc=95.98%
+Epoch 15 [300/391] step=5774 loss=0.1162 acc=96.00%
+Epoch 15 [350/391] step=5824 loss=0.1160 acc=96.04%
+Epoch 15 finished in 85.5s | train loss 0.1169 | train acc 96.00%
+[val] epoch 15 | loss 0.1354 | acc 95.50%
+Epoch 16 [50/391] step=5915 loss=0.0882 acc=96.97%
+Epoch 16 [100/391] step=5965 loss=0.0874 acc=96.95%
+Epoch 16 [150/391] step=6015 loss=0.0912 acc=96.82%
+Epoch 16 [200/391] step=6065 loss=0.0914 acc=96.80%
+Epoch 16 [250/391] step=6115 loss=0.0919 acc=96.76%
+Epoch 16 [300/391] step=6165 loss=0.0910 acc=96.80%
+Epoch 16 [350/391] step=6215 loss=0.0900 acc=96.82%
+Epoch 16 finished in 85.3s | train loss 0.0900 | train acc 96.83%
+[val] epoch 16 | loss 0.1353 | acc 96.04%
+Saved checkpoint to best_vit_cifar10.pth (acc=96.04%)
+Epoch 17 [50/391] step=6306 loss=0.0731 acc=97.30%
+Epoch 17 [100/391] step=6356 loss=0.0725 acc=97.51%
+Epoch 17 [150/391] step=6406 loss=0.0691 acc=97.62%
+Epoch 17 [200/391] step=6456 loss=0.0693 acc=97.63%
+Epoch 17 [250/391] step=6506 loss=0.0677 acc=97.66%
+Epoch 17 [300/391] step=6556 loss=0.0681 acc=97.65%
+Epoch 17 [350/391] step=6606 loss=0.0684 acc=97.64%
+Epoch 17 finished in 84.8s | train loss 0.0678 | train acc 97.64%
+[val] epoch 17 | loss 0.1248 | acc 96.40%
+Saved checkpoint to best_vit_cifar10.pth (acc=96.40%)
+Epoch 18 [50/391] step=6697 loss=0.0584 acc=97.83%
+Epoch 18 [100/391] step=6747 loss=0.0565 acc=97.97%
+Epoch 18 [150/391] step=6797 loss=0.0546 acc=98.07%
+Epoch 18 [200/391] step=6847 loss=0.0553 acc=98.05%
+Epoch 18 [250/391] step=6897 loss=0.0531 acc=98.13%
+Epoch 18 [300/391] step=6947 loss=0.0520 acc=98.17%
+Epoch 18 [350/391] step=6997 loss=0.0512 acc=98.19%
+Epoch 18 finished in 89.2s | train loss 0.0511 | train acc 98.20%
+[val] epoch 18 | loss 0.1197 | acc 96.64%
+Saved checkpoint to best_vit_cifar10.pth (acc=96.64%)
+Epoch 19 [50/391] step=7088 loss=0.0379 acc=98.72%
+Epoch 19 [100/391] step=7138 loss=0.0432 acc=98.58%
+Epoch 19 [150/391] step=7188 loss=0.0444 acc=98.52%
+Epoch 19 [200/391] step=7238 loss=0.0427 acc=98.57%
+Epoch 19 [250/391] step=7288 loss=0.0427 acc=98.57%
+Epoch 19 [300/391] step=7338 loss=0.0414 acc=98.62%
+Epoch 19 [350/391] step=7388 loss=0.0417 acc=98.61%
+Epoch 19 finished in 89.5s | train loss 0.0423 | train acc 98.61%
+[val] epoch 19 | loss 0.1182 | acc 96.78%
+Saved checkpoint to best_vit_cifar10.pth (acc=96.78%)
+Epoch 20 [50/391] step=7479 loss=0.0370 acc=98.72%
+Epoch 20 [100/391] step=7529 loss=0.0378 acc=98.73%
+Epoch 20 [150/391] step=7579 loss=0.0402 acc=98.73%
+Epoch 20 [200/391] step=7629 loss=0.0391 acc=98.76%
+Epoch 20 [250/391] step=7679 loss=0.0394 acc=98.73%
+Epoch 20 [300/391] step=7729 loss=0.0394 acc=98.74%
+Epoch 20 [350/391] step=7779 loss=0.0396 acc=98.74%
+Epoch 20 finished in 90.9s | train loss 0.0391 | train acc 98.75%
+[val] epoch 20 | loss 0.1174 | acc 96.75%
+Training complete. Best val acc: 96.78%
+Warning: Resource leak detected by SharedSignalPool, 368 Signals leaked.
+(rocm-pytorch) john@llm-agents:~/open-source/py-proj/se-fashionmnist$ ^C
+(rocm-pytorch) john@llm-agents:~/open-source/py-proj/se-fashionmnist$ 
